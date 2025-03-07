@@ -15,9 +15,9 @@ spec:
     automated:
       prune: false
       selfHeal: false
-      syncWindow:
-        - kind: Sync
-          schedule: "*/1 * * * *"  # Esto es un ejemplo de cron para cada minuto
+    syncWindows:
+      - kind: Allow
+        schedule: "*/1 * * * *"  # Esto es un ejemplo de cron para cada minuto
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
+        image: nginx:latest  # Considera usar una versión específica de la imagen
         ports:
         - containerPort: 80
 ---
@@ -46,10 +46,9 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: ClusterIP
+  type: ClusterIP  # Cambiar a LoadBalancer si necesitas exponer el servicio externamente
   selector:
     app: nginx
   ports:
   - port: 80
     targetPort: 80
-
