@@ -10,7 +10,7 @@ spec:
       syncWindow:
         - kind: Sync
           schedule: "*/1 * * * *" 
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
