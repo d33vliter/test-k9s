@@ -2,13 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
-  namespace: default
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: nginx=ghcr.io/d33vliter/test-k9s/nginx
-    argocd-image-updater.argoproj.io/nginx.update-strategy: semver
-    argocd-image-updater.argoproj.io/nginx.version-constraint: ~1.0
+  labels:
+    app: nginx
 spec:
-  replicas: 2
+  replicas: 2  # Número de réplicas de tu Nginx
   selector:
     matchLabels:
       app: nginx
@@ -19,8 +16,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: ghcr.io/d33vliter/test-k9s/nginx:ian-1.0  # Versión inicial
-        ports:
-        - containerPort: 80
-    imagePullSecrets:
-      - name: ghcr-secret
+        image: nginx:latest  # La imagen de Nginx que será actualizada por ArgoCD Image Updater
