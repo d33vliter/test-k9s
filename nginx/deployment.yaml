@@ -4,9 +4,9 @@ metadata:
   name: nginx-deployment
   namespace: default
   annotations:
-    argocd-image-updater.argoproj.io/image-list: nginx=nginx
+    argocd-image-updater.argoproj.io/image-list: nginx=ghcr.io/d33vliter/test-k9s/nginx
     argocd-image-updater.argoproj.io/nginx.update-strategy: semver
-    argocd-image-updater.argoproj.io/nginx.version-constraint: ~1.21.6
+    argocd-image-updater.argoproj.io/nginx.version-constraint: ~1.0
 spec:
   replicas: 2
   selector:
@@ -19,6 +19,8 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.21.6  # Versión inicial
+        image: ghcr.io/d33vliter/test-k9s/nginx:ian-1.0  # Versión inicial
         ports:
         - containerPort: 80
+    imagePullSecrets:
+      - name: ghcr-secret
