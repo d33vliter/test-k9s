@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:latest  # Considera usar una versión específica de la imagen
+        image: nginx  # Considera usar una versión específica de la imagen
         ports:
         - containerPort: 80
 ---
