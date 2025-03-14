@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 2  # Número de réplicas de tu Nginx
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:latest  # La imagen de Nginx que será actualizada por ArgoCD Image Updater
+        image: nginx:latest
