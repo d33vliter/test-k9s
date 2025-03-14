@@ -2,12 +2,12 @@ apiVersion: apps/argoproj.io/v1alpha1
 kind: ImageUpdateAutomation
 metadata:
   name: nginx-image-update
-  namespace: argocd  # Asegúrate de que esté en el namespace correcto
+  namespace: argocd
 spec:
   git:
-    repoURL: https://github.com/d33vliter/test-k9s.git  # URL del repositorio Git
-    branch: main  # Rama donde están los manifiestos
-    path: image-update  # Ruta a la carpeta dentro del repositorio donde se encuentra este archivo
+    repoURL: https://github.com/d33vliter/test-k9s.git
+    branch: main
+    path: image-update
   image:
-    name: nginx  # Nombre de la imagen (por ejemplo, nginx)
-    tag: 1.21.6  # O cualquier etiqueta que quieras utilizar
+    name: nginx
+    tag: latest
