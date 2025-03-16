@@ -6,9 +6,9 @@ metadata:
 spec:
   image: ghcr.io/d33vliter/nginx
   interval: 1m
-  filterTags:
-    pattern: ".*-RELEASE"
-    extract: "$0"
+  filter:
+    tagList:
+      pattern: ".*-RELEASE"
   secretRef:
     name: registry-secret  # Solo si es necesario
 ---
