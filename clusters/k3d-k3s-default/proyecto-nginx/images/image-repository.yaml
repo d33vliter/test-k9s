@@ -6,9 +6,6 @@ metadata:
 spec:
   image: ghcr.io/d33vliter/nginx
   interval: 1m
-  filterTags:
-    pattern: ".*-RELEASE"
-    extract: "$0"
   secretRef:
     name: registry-secret  # Solo si es necesario
 ---
@@ -20,6 +17,9 @@ metadata:
 spec:
   imageRepositoryRef:
     name: nginx-repo
+  filterTags:
+    pattern: ".*-RELEASE"
+    extract: "$0"
   policy:
     semver:
       range: "*"
