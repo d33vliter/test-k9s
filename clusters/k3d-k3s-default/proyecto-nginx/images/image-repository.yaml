@@ -35,6 +35,7 @@ spec:
     name: flux-system
   update:
     strategy: Setters
+    path: ./clusters/k3d-k3s-default/proyecto-nginx/deploy
   git:
     commit:
       author:
@@ -42,5 +43,3 @@ spec:
         name: fluxcdbot
     push:
       branch: main
-  update:
-    path: ./clusters/k3d-k3s-default/proyecto-nginx
