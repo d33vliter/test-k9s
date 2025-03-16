@@ -18,7 +18,7 @@ spec:
   imageRepositoryRef:
     name: nginx-repo
   filterTags:
-    pattern: ".*-RELEASE"
+    pattern: ".*-release"
     extract: "$0"
   policy:
     semver:
