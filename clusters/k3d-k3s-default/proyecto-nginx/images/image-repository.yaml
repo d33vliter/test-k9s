@@ -6,7 +6,7 @@ metadata:
 spec:
   image: ghcr.io/d33vliter/nginx
   interval: 1m
-  exclusions:
+  exclusionList:
     - ".*-SNAPSHOT"  # Excluye imágenes que contienen 'snapshot'
   secretRef:
     name: registry-secret  # Solo si es necesario
