@@ -1,0 +1,44 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: nginx-repo
+  namespace: flux-system
+spec:
+  image: ghcr.io/d33vliter/nginx
+  interval: 1m
+  filterTags:
+    pattern: ".*-RELEASE"
+    extract: "$0"
+  secretRef:
+    name: registry-secret  # Solo si es necesario
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: nginx-policy
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: nginx-repo
+  policy:
+    semver:
+      range: "*"
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: update-nginx
+  namespace: flux-system
+spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  update:
+    strategy: Setters
+  commit:
+    author:
+      name: FluxCD
+      email: flux@example.com
+    messageTemplate: "Update image to {{ .ImagePolicy.nginx-policy.latestImage }}"
+
