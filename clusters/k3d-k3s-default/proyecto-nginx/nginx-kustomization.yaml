@@ -6,7 +6,7 @@ metadata:
 spec:
   targetNamespace: cumbio
   interval: 1m
-  path: "./proyecto-nginx/deploy"
+  path: "./deploy"
   prune: true
   sourceRef:
     kind: GitRepository
