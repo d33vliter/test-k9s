@@ -6,7 +6,7 @@ metadata:
 spec:
   image: ghcr.io/d33vliter/nginx
   interval: 1m
-  exclusionList:
+  exclusions:
     - ".*-SNAPSHOT"  # Excluye imágenes que contienen 'snapshot'
   secretRef:
     name: registry-secret  # Solo si es necesario
@@ -35,8 +35,8 @@ spec:
     name: flux-system
   update:
     strategy: Setters
-  commit:
+  git:
     author:
       name: FluxCD
       email: flux@example.com
-    messageTemplate: "Update image to {{ .ImagePolicy.nginx-policy.latestImage }}"
+    commitMessageTemplate: "Update image to {{ .ImagePolicy.nginx-policy.latestImage }}"
