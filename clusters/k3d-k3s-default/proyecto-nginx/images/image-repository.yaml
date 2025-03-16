@@ -21,7 +21,7 @@ spec:
     pattern: '.*-release'
   policy:
     semver:
-      range: ">=1.0.0"
+      range: ">=1.0.0-release"
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
