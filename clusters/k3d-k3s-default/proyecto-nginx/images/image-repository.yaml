@@ -19,7 +19,6 @@ spec:
     name: nginx-repo
   filterTags:
     pattern: '.*-release'
-    extract: "$0"
   policy:
     semver:
       range: "*"
