@@ -40,4 +40,3 @@ spec:
       name: FluxCD
       email: flux@example.com
     messageTemplate: "Update image to {{ .ImagePolicy.nginx-policy.latestImage }}"
-
