@@ -35,8 +35,3 @@ spec:
     name: flux-system
   update:
     strategy: Setters
-  git:
-    author:
-      name: FluxCD
-      email: flux@example.com
-    commitMessageTemplate: "Update image to {{ .ImagePolicy.nginx-policy.latestImage }}"
