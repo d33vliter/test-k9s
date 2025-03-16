@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: cumbio
-  name: default
+  name: nginx
 spec:
   replicas: 1
   selector:
@@ -17,6 +17,6 @@ spec:
       - name: registry-secret
       containers:
         - name: nginx
-          image: ghcr.io/d33vliter/nginx:1.0.0-release
+          image: image: ghcr.io/d33vliter/nginx:1.0.0-release
           ports:
             - containerPort: 80
