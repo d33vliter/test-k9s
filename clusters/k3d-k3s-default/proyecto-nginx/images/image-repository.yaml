@@ -43,4 +43,4 @@ spec:
     push:
       branch: main
   update:
-    path: ./clusters/k3d-k3s-default/deploy/nginx-kustomization.yaml
+    path: ./clusters/k3d-k3s-default/proyecto-nginx/nginx-kustomization.yaml
