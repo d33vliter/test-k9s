@@ -58,5 +58,8 @@ spec:
             - {{ $change.OldValue }} -> {{ $change.NewValue }}
         {{ end -}}
         {{ end -}}
+    checkout:
+      ref:
+        branch: main
     push:
-      branch: main
+      branch: flux-main
