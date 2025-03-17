@@ -41,6 +41,6 @@ spec:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
-      message: "Automated image update by Flux for cluster {{ .Values.cluster }}."  # Corregido el formato del mensaje
+      messageTemplate: "Automated image update by Flux for cluster"  # Corregido el formato del mensaje
     push:
       branch: main
