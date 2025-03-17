@@ -34,7 +34,7 @@ spec:
     kind: GitRepository
     name: flux-system
   update:
-    path: ./clusters/k3d-k3s-default/proyecto-nginx/deploy
+    path: ./clusters/k3d-k3s-default/proyecto-nginx
   git:
     commit:
       author:
