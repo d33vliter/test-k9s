@@ -17,6 +17,6 @@ spec:
         - name: registry-secret
       containers:
         - name: nginx
-          image: ghcr.io/d33vliter/nginx:1.0.0-release
+          image: ghcr.io/d33vliter/nginx
           ports:
             - containerPort: 80
