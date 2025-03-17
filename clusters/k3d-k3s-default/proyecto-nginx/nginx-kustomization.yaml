@@ -15,4 +15,5 @@ spec:
   images:
     - name: ghcr.io/d33vliter/nginx
       newName: ghcr.io/d33vliter/nginx
-      newTag: # {"$imagepolicy": "flux-system:nginx:tag"}
+      newTag:
+        # {"$imagepolicy": "flux-system:nginx:tag"}
