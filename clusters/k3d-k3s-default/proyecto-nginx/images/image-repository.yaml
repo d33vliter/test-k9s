@@ -35,7 +35,7 @@ spec:
     name: flux-system
   update:
     strategy: Setters
-    path: ./clusters/k3d-k3s-default/proyecto-nginx  # Aquí debe estar el archivo de Kustomize o directorio correspondiente
+    path: ./clusters/k3d-k3s-default/proyecto-nginx/deploy
   git:
     commit:
       author:
