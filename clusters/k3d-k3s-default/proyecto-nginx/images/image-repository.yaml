@@ -35,7 +35,7 @@ spec:
     name: flux-system
   update:
     strategy: Setters
-    path: ./clusters/k3d-k3s-default/proyecto-nginx
+    path: ./clusters/k3d-k3s-default/proyecto-nginx/nginx-kustomization.yaml
   git:
     commit:
       author:
