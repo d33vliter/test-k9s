@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: cumbio
-  interval: 1m
+  interval: 10s
   path: "./clusters/k3d-k3s-default/proyecto-nginx/deploy"
   prune: true
   sourceRef:
