@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   image: ghcr.io/d33vliter/nginx
-  interval: 1m
+  interval: 10s
   secretRef:
     name: registry-secret  # Solo si es necesario
 ---
@@ -29,7 +29,7 @@ metadata:
   name: update-nginx
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 10s
   sourceRef:
     kind: GitRepository
     name: flux-system
