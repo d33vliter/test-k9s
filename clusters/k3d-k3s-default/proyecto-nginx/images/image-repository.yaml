@@ -35,13 +35,12 @@ spec:
     name: flux-system
   update:
     strategy: Setters
-    path: ./clusters/k3d-k3s-default/proyecto-nginx
+    path: ./clusters/k3d-k3s-default/proyecto-nginx  # Aquí debe estar el archivo de Kustomize o directorio correspondiente
   git:
     commit:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
-        |-
-        Automated image update by Flux for cluster {{ .Values.cluster }}.
+      message: "Automated image update by Flux for cluster {{ .Values.cluster }}."  # Corregido el formato del mensaje
     push:
       branch: main
