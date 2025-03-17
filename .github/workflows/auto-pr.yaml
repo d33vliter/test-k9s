@@ -10,21 +10,26 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    - name: Create Pull Request
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # used implicitly by the gh CLI to authenticate with GitHub
-        GITHUB_REPO: ${{ github.repository }}
-        GITHUB_REF: ${{ github.ref }}
-      run: |
-        gh pr create \
-          --repo=${GITHUB_REPO} \
-          --head=flux-main\
-          --base=main \
-          --title="Pulling ${GITHUB_REF} into main" \
-          --body=":crown: *An automated PR*\n\nCommit: ${COMMIT_MESSAGE}" \
-          --reviewer=d33vliter \
-          --draft        
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Asegura que se obtiene el último commit
+
+      - name: Get Last Commit Message
+        id: commit
+        run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_REF: ${{ github.ref }}
+        run: |
+          gh pr create \
+            --repo=${GITHUB_REPO} \
+            --head=flux-main \
+            --base=main \
+            --title="Pulling ${GITHUB_REF} into main" \
+            --body="👑 *An automated PR*\n\n**Commit:** ${{ env.message }}" \
+            --reviewer=d33vliter \
+            --draft
