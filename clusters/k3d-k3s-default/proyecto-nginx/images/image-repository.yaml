@@ -34,8 +34,7 @@ spec:
     kind: GitRepository
     name: flux-system
   update:
-    strategy: Setters
-    path: ./clusters/k3d-k3s-default/proyecto-nginx/deploy/deployment.yaml
+    path: ./clusters/k3d-k3s-default/proyecto-nginx/deploy
   git:
     commit:
       author:
