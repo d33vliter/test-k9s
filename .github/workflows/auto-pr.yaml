@@ -23,7 +23,7 @@ jobs:
         gh pr create \
           --repo=${GITHUB_REPO} \
           --head=flux-dev \
-          --base=cumbio \
+          --base=dev \
           --title="Pulling ${GITHUB_REF} into dev" \
           --body="${{ github.event.head_commit.message }}" \
           --reviewer=d33vliter \
