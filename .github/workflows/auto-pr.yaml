@@ -1,5 +1,5 @@
 # ./.github/workflows/auto-pr.yaml
-name: flux-main Auto-PR
+name: flux-dev Auto-PR
 on:
   create:
     branches: [flux-dev]
@@ -23,7 +23,7 @@ jobs:
         gh pr create \
           --repo=${GITHUB_REPO} \
           --head=flux-dev \
-          --base=dev \
+          --base=cumbio \
           --title="Pulling ${GITHUB_REF} into dev" \
           --body="${{ github.event.head_commit.message }}" \
           --reviewer=d33vliter \
